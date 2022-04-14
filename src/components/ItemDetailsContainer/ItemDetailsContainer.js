@@ -1,8 +1,8 @@
-import Item from '../Item/Item.js';
+import ItemDetail from '../ItemDetail/ItemDetail.js';
 import { useEffect, useState } from 'react';
 
 
-const ItemListWidget = () => {
+const ItemDetailsContainer = () => {
 
     const [information, setInformation] = useState([]);
 
@@ -82,7 +82,7 @@ const ItemListWidget = () => {
         <>
             <div className='row pb-5'>
                 {            
-                    information.map(item => <Item title={item.title} picture={item.picture} price={item.price} description={item.description}> </Item>)
+                    information.map(item => <ItemDetail title={item.title} picture={item.picture} price={item.price} description={item.description}> </ItemDetail>)
                 }
             </div>        
         </>
@@ -90,4 +90,4 @@ const ItemListWidget = () => {
     
 }
 
-export default ItemListWidget;
+export default ItemDetailsContainer;

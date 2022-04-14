@@ -1,4 +1,6 @@
-const Item = (props) => {
+import ItemCount from '../ItemCount/ItemCount.js';
+
+const ItemDetail = (props) => {
 
     return (
         <>
@@ -13,11 +15,11 @@ const Item = (props) => {
                     <img src={props.picture} alt={props.title}></img>
                     <h5 className="card-title">{props.description}</h5>
                     <p className="card-text">{props.price}</p>
-                    
+                    <ItemCount stock="5" initial="1"></ItemCount>                    
                 </div>
     
                 <div className="card-footer">
-                    <a href="#" className="btn btn-primary">Ver detalle del producto</a>
+                    <a href="#" className="btn btn-primary">Agregar al carrito</a>
                 </div>
             </div>
         </div> 
@@ -26,4 +28,4 @@ const Item = (props) => {
     
 }
 
-export default Item;
+export default ItemDetail;
