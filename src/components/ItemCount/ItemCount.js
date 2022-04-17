@@ -9,14 +9,12 @@ const ItemCount = (props) => {
     let stock = props.stock;
 
     const increment = () => {
-        console.log(initial);
         if (count < stock){
             setCount(count + 1);
         }
     }
 
     const decrement = () => {
-        console.log(initial);
         if(count > initial){
             setCount(count - 1);
         }
@@ -47,9 +45,7 @@ const ItemCount = (props) => {
             </span>
         </div>
     </div>
-    
     </>);
-
 }
 
 export default ItemCount;

@@ -9,12 +9,9 @@ const ItemDetailsContainer = () => {
     const [information, setInformation] = useState([]);
     const {idItem} = useParams();
 
-    console.log(idItem);
-
     useEffect(() => {
         searchProductsInStock(2000, productsData.filter(item => item.id === parseInt(idItem)))
             .then(result => setInformation(result))
-            //.then(result => console.log(result))
             .catch(error => console.log(error))
     }, [idItem]);
     
