@@ -7,7 +7,7 @@ const productsData = [
         category: "classic",
         placeholder: "Charizard",
         price: "$50",
-        stock: 100
+        stock: 5
 
     },
     {

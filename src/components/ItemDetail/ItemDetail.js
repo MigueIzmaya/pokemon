@@ -1,6 +1,15 @@
 import ItemCount from '../ItemCount/ItemCount.js';
+import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({item}) => {
+
+    const [itemCount, setItemCount] = useState(0);
+
+    const onAdd = (eve) => {
+        alert("Has seleccionado " + eve + " items.");
+        setItemCount(eve);
+    };
 
     return (
         <>
@@ -15,11 +24,14 @@ const ItemDetail = ({item}) => {
                     <img src={item.picture} alt={item.title}></img>
                     <h5 className="card-title">{item.description}</h5>
                     <p className="card-text">{item.price}</p>
-                    <ItemCount stock="5" initial="1"></ItemCount>                    
-                </div>
-    
-                <div className="card-footer">
-                    <a href="#" className="btn btn-primary">Agregar al carrito</a>
+
+                    {
+                        itemCount === 0 ?
+                        <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd}></ItemCount>
+                        : <Link to='/cart'><a href="#" className="btn btn-primary">Checkout</a></Link>
+                        
+                    }
+                                       
                 </div>
             </div>
         </div> 
