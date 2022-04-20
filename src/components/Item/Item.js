@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Item = (props) => {
 
     return (
@@ -17,7 +19,7 @@ const Item = (props) => {
                 </div>
     
                 <div className="card-footer">
-                    <a href="#" className="btn btn-primary">Ver detalle del producto</a>
+                    <Link to={`/item/${props.id}`}> <a href="#" className="btn btn-primary">Ver detalle del producto</a></Link>
                 </div>
             </div>
         </div> 

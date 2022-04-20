@@ -1,6 +1,6 @@
 import ItemCount from '../ItemCount/ItemCount.js';
 
-const ItemDetail = (props) => {
+const ItemDetail = ({item}) => {
 
     return (
         <>
@@ -8,13 +8,13 @@ const ItemDetail = (props) => {
         <div className="col-12 col-sm-12 col-md-12 col-lg-4 pb-5 d-flex justify-content-center">
             <div className="card">
                 <div className="card-header">
-                    {props.title}
+                    {item.title}
                 </div>
     
                 <div className="card-body">
-                    <img src={props.picture} alt={props.title}></img>
-                    <h5 className="card-title">{props.description}</h5>
-                    <p className="card-text">{props.price}</p>
+                    <img src={item.picture} alt={item.title}></img>
+                    <h5 className="card-title">{item.description}</h5>
+                    <p className="card-text">{item.price}</p>
                     <ItemCount stock="5" initial="1"></ItemCount>                    
                 </div>
     

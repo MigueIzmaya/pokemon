@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget.js';
   
@@ -6,7 +7,7 @@ import CartWidget from '../CartWidget/CartWidget.js';
       <div className="NavBar"> 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Pokémon</a>
+                <Link to="/">Pokémon</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -17,8 +18,16 @@ import CartWidget from '../CartWidget/CartWidget.js';
                             <a className="nav-link" aria-current="page" href="#">Inicio</a>
                         </li>
         
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Tipos de cartas</a>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tipos de Cartas
+                            </a>
+                            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <Link to="/category/classic"><li><a className="dropdown-item" href="#">Classic</a></li></Link>
+                                <Link to="/category/neo-revelation"><li><a className="dropdown-item" href="#">Neo Revelation</a></li></Link>
+                                <Link to="/category/chilling-reign"><li><a className="dropdown-item" href="#">Chilling Reign</a></li></Link>
+                                <Link to="/category/neo-genesis"><li><a className="dropdown-item" href="#">Neo Genesis</a></li></Link>
+                            </ul>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Tipos de Pokémon</a>
