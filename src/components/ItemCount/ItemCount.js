@@ -1,12 +1,9 @@
 import './ItemCount.css'
 import { useState } from 'react';
 
-const ItemCount = (props) => {
+const ItemCount = ({ stock = 0, initial = 1,  onAdd }) => {
 
     const [count, setCount] = useState(0);
-
-    let initial = props.initial;
-    let stock = props.stock;
 
     const increment = () => {
         if (count < stock){
@@ -44,6 +41,11 @@ const ItemCount = (props) => {
                 </button>
             </span>
         </div>
+        
+    </div>
+
+    <div className="card-footer">
+        <a href="#" className="btn btn-primary" onClick={() => onAdd(count)}>Agregar al carrito</a>
     </div>
     </>);
 }
