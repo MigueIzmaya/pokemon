@@ -12,7 +12,7 @@ const ItemDetail = ({item}) => {
     const onAdd = (eve) => {
         alert("Has seleccionado " + eve + " items.");
         setItemCount(eve);
-        currentContext.addToCart(item);
+        currentContext.addToCart(item, eve);
     };
 
     return (

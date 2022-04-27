@@ -3,13 +3,13 @@ import { CartContext } from "../CartContext/CartContext";
 
 const Cart = () => {
 
-    const test = useContext(CartContext);
+    const currentContext = useContext(CartContext);
 
     return(
         <div className="container-fluid product-scroll mb-3">
 
         {
-            test.cartList.map(product => 
+            currentContext.cartList.map(product => 
                 
                 
                         <div className="row mb-3">
@@ -17,7 +17,7 @@ const Cart = () => {
                                 <picture className="position-relative">
                                     <img src={product.picture} className="img-fluid img-thumbnail mini" alt="TOY STORY" />
                                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                                    1                       
+                                    {product.countProducts}                       
                                     </span>
                                 </picture>                      
                             </div>
