@@ -8,28 +8,40 @@ const Cart = () => {
     return(
         <div className="container-fluid product-scroll mb-3">
 
+            {console.log(currentContext.cartList)}
         {
+
             currentContext.cartList.map(product => 
                 
                 
+                <div className="row">
+                    <div className="col-md-8 col-8">
                         <div className="row mb-3">
-                            <div className="col-md-6 col-4">
-                                <picture className="position-relative">
+                            <div className="col-md-4 col-4">
+                                <picture>
                                     <img src={product.picture} className="img-fluid img-thumbnail mini" alt="TOY STORY" />
-                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                                    {product.countProducts}                       
-                                    </span>
                                 </picture>                      
                             </div>
-            
-                            <div className="col-md-3 col-4">
+
+                            <div className="col-md-2 col-2">
                                 <label className="form-label">{product.title}</label>
                             </div>
-            
-                            <div className="col-md-3 col-4">
+                
+                            <div className="col-md-3 col-3">
+                                <label className="form-label">{product.countProducts}</label>
+                            </div>
+                
+                            <div className="col-md-3 col-3">
                                 <label className="form-label">{product.price}</label>
                             </div>
-                        </div>            
+                        </div>
+                    </div>
+
+                    <div className="col-md-4 col-4">
+                        <a href="#" className="btn btn-danger" onClick={() => currentContext.deleteElement(product.id)}>Eliminar Producto</a>                    
+                    </div>
+                </div>
+                                    
             )
 
         }
