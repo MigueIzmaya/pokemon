@@ -6,6 +6,17 @@ const Cart = () => {
     const currentContext = useContext(CartContext);
 
     return(
+
+        <>
+
+        <div className="container mb-5">
+            <div className="row">
+                <div className="offset-md-8">
+                    <a href="#" className="btn btn-danger" onClick={() => currentContext.removeAllElements()}>Eliminar todos los productos</a>                    
+                </div>
+            </div>
+        </div>
+
         <div className="container-fluid product-scroll mb-3">
 
             {console.log(currentContext.cartList)}
@@ -46,6 +57,7 @@ const Cart = () => {
 
         }
         </div>
+        </>
     );
 
 }
