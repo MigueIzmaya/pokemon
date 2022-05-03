@@ -36,8 +36,18 @@ const CartContextProvider = ({children}) => {
         setCartList(cartList.filter(item => item.id != id));
     }
 
+    const calculateTotalItems = () => {
+		let countProductsMap = cartList.map((item) => item.countProducts);
+		return countProductsMap.reduce(
+			(previousValue, currentValue) => previousValue + currentValue, 0);
+	};
+
     return(
-        <CartContext.Provider value={{cartList, addToCart, deleteElement, removeAllElements}}>
+        <CartContext.Provider value={{cartList, 
+                                      addToCart, 
+                                      deleteElement, 
+                                      removeAllElements,
+                                      calculateTotalItems}}>
             {children}
         </CartContext.Provider>
     );
