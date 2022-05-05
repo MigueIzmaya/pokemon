@@ -1,8 +1,7 @@
 import ItemDetail from '../ItemDetail/ItemDetail.js';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { searchProductsInStock } from '../../utils/Utils.js';
-const {productsData} = require('../../utils/productsData');
+import { searchProductByIdItem } from '../../utils/fireStoreUtils.js';
 
 const ItemDetailsContainer = () => {
 
@@ -10,14 +9,15 @@ const ItemDetailsContainer = () => {
     const {idItem} = useParams();
 
     useEffect(() => {
-        searchProductsInStock(2000, productsData.filter(item => item.id === parseInt(idItem)))
-            .then(result => setInformation(result))
-            .catch(error => console.log(error))
-    }, [idItem]);
+        
+        searchProductByIdItem(idItem)
+            .then((result) => setInformation(result))
+            .catch((error) => console.log(error));
+    }, []);
     
     return (
         <>
-            {information.map(item => <ItemDetail item={item}> </ItemDetail>)}       
+            {<ItemDetail item={information}> </ItemDetail>}       
         </>
     );    
 }
