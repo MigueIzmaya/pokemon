@@ -1,8 +1,8 @@
 import Item from '../Item/Item.js';
 import { useEffect, useState } from 'react';
-import { searchProductsInStock } from '../../utils/Utils.js';
+
 import { useParams } from 'react-router-dom';
-const {productsData} = require('../../utils/productsData');
+import { searchProductsInStock } from '../../utils/fireStoreUtils.js';
 
 const ItemListWidget = () => {
 
@@ -10,11 +10,10 @@ const ItemListWidget = () => {
     const {idCategory} = useParams();
 
     useEffect(() => {
-        searchProductsInStock(2000, productsData.filter(item => 
-            idCategory === undefined ? item : item.category === idCategory
-        ))
+
+        searchProductsInStock(idCategory)
             .then(result => setInformation(result))
-            .catch(error => console.log(error))
+            .catch(err => console.log(err));
     }, [idCategory]);
 
 
