@@ -42,12 +42,38 @@ const CartContextProvider = ({children}) => {
 			(previousValue, currentValue) => previousValue + currentValue, 0);
 	};
 
+    const calculateTotalPrice = (idItem) => {
+        let index = cartList.map((item) => item.idItem).indexOf(idItem);
+    
+        return parseInt((cartList[index].price * cartList[index].countProducts).toFixed(2));
+      };
+
+    const calculateSubTotal = () => {
+       let totalPerProduct = cartList.map((item) => calculateTotalPrice(item.idItem));
+    
+       return totalPerProduct.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+    };
+
+    const calculateTaxes = () => {
+        let Taxes = calculateSubTotal() * 0.10;
+    
+        return Taxes.toFixed(2);
+    };
+
+    const calculateTotal = () => {
+       return parseInt(calculateSubTotal()) + parseInt(calculateTaxes());
+    };
+
     return(
         <CartContext.Provider value={{cartList, 
                                       addToCart, 
                                       deleteElement, 
                                       removeAllElements,
-                                      calculateTotalItems}}>
+                                      calculateTotalItems,
+                                      calculateTotalPrice, 
+                                      calculateSubTotal,
+                                      calculateTaxes,
+                                      calculateTotal}}>
             {children}
         </CartContext.Provider>
     );
