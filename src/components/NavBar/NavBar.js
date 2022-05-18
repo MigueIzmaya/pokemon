@@ -14,27 +14,22 @@ import CartWidget from '../CartWidget/CartWidget.js';
     
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="#">Inicio</a>
-                        </li>
         
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Tipos de Cartas
                             </a>
                             <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <Link to="/category/classic"><li><a className="dropdown-item" href="#">Classic</a></li></Link>
-                                <Link to="/category/neo-revelation"><li><a className="dropdown-item" href="#">Neo Revelation</a></li></Link>
-                                <Link to="/category/chilling-reign"><li><a className="dropdown-item" href="#">Chilling Reign</a></li></Link>
-                                <Link to="/category/neo-genesis"><li><a className="dropdown-item" href="#">Neo Genesis</a></li></Link>
+                                <Link to="/category/classic"><li><a className="dropdown-item">Classic</a></li></Link>
+                                <Link to="/category/neo-revelation"><li><a className="dropdown-item">Neo Revelation</a></li></Link>
+                                <Link to="/category/chilling-reign"><li><a className="dropdown-item">Chilling Reign</a></li></Link>
+                                <Link to="/category/neo-genesis"><li><a className="dropdown-item">Neo Genesis</a></li></Link>
                             </ul>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#">Tipos de Pokémon</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Juegos</a>
-                        </li>
+
                         <li className="nav-item">
                             <a className="nav-link" href="#">Acerca de nosotros</a>
                         </li>
