@@ -17,10 +17,20 @@ const Item = (props) => {
                     <p className="card-text">{props.price}</p>
                     
                 </div>
+
+                {
+                    props.stock > 0 ? 
+                        <div className="card-footer">
+                            <Link to={`/item/${props.id}`}> <a href="#" className="btn btn-primary">Ver detalle del producto</a></Link>
+                        </div>
+                    :
+                        <div className="card-footer">
+                            <a href="#" className="btn btn-danger disabled">No disponible</a>
+                        </div>
+
+                }
     
-                <div className="card-footer">
-                    <Link to={`/item/${props.id}`}> <a href="#" className="btn btn-primary">Ver detalle del producto</a></Link>
-                </div>
+                
             </div>
         </div> 
         </>

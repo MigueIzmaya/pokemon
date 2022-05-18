@@ -1,55 +1,11 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { createOrder } from "../../utils/fireStoreUtils";
 import { CartContext } from "../CartContext/CartContext";
-import { collection, increment, serverTimestamp, setDoc, updateDoc, doc } from "firebase/firestore";
-import db from "../../utils/firebaseConfig";
-
 
 const Cart = () => {
 
     const currentContext = useContext(CartContext);
-
-    const createOrder = () => {
-        currentContext.cartList.forEach(async (item) => {
-          const itemRef = doc(db, "products", item.id);
-    
-          await updateDoc(itemRef, {
-            stock: increment(-item.countProducts),
-          });
-        });
-    
-        let order = {
-          buyer: {
-            name: "Miguel Izmaya",
-            phone: "5522448899",
-            email: "miguelizmaya@gmail.com",
-          },
-          date: serverTimestamp(),
-          items: currentContext.cartList.map((item) => ({
-            id: item.id,
-            price: item.price,
-            title: item.title,
-            countProducts: item.countProducts,
-          })),
-          total: currentContext.calculateTotal(),
-        };
-    
-        const createOrderInFirestore = async (order) => {
-
-            console.log(order);
-          const newOrderRef = doc(collection(db, "orders"));
-    
-          await setDoc(newOrderRef, order);
-    
-          return newOrderRef;
-        };
-    
-        createOrderInFirestore(order)
-          .then((result) => alert("Tu orden ha sido creada con éxito. "))
-          .catch((error) => console.log(error));
-    
-        currentContext.removeAllElements();
-      };
 
     return(
 
@@ -143,7 +99,7 @@ const Cart = () => {
 
                 {
                      currentContext.calculateTotalItems() > 0 && (
-                        <Link to='/'><a href="#" className="btn btn-primary" onClick={createOrder}>Finalizar y Comprar</a></Link>
+                        <Link to='/'><a href="#" className="btn btn-primary" onClick={() => createOrder(currentContext)}>Finalizar y Comprar</a></Link>
 
                      )
                 }

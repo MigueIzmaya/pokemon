@@ -21,7 +21,7 @@ const ItemListWidget = () => {
         <>
             <div className='row pb-5'>
                 {            
-                    information.map(item => <Item title={item.title} picture={item.picture} price={item.price} description={item.description} id={item.id}></Item>)
+                    information.map(item => <Item title={item.title} picture={item.picture} price={item.price} description={item.description} id={item.id} stock={item.stock}></Item>)
                 }
             </div>        
         </>
